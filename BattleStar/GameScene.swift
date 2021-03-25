@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class GameScene: SKScene {
     
@@ -24,7 +25,22 @@ class GameScene: SKScene {
     
     private var lastTime: Double = 0
     
+    private let motionManager = CMMotionManager()
+    
+    private var accelerometerOffset : CMAccelerometerData?
+    
     override func didMove(to view: SKView) {
+        
+        let sky = SKSpriteNode(imageNamed: "Sky-1")
+        sky.zPosition = -1
+        addChild(sky)
+        
+        if let clouds = SKEmitterNode(fileNamed: "Clouds"){
+            clouds.position.x = 600
+            clouds.position.y = 0
+            clouds.advanceSimulationTime(10)
+            addChild(clouds)
+        }
         
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
@@ -36,6 +52,17 @@ class GameScene: SKScene {
         self.pilotNode.run(self.flyAction, withKey: flyActionKey)
         self.pilotNode.position = CGPoint(x: -250, y: -100)
         self.addChild(pilotNode)
+        
+        
+        if let smoke = SKEmitterNode(fileNamed: "Smoke"){
+            smoke.position.x = -40
+            smoke.position.y = -20
+            smoke.advanceSimulationTime(10)
+            self.pilotNode.addChild(smoke)
+        }
+        
+        motionManager.startAccelerometerUpdates()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -72,8 +99,23 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
-        self.pilotNode.position.y += (self.desiredPosition.y - self.pilotNode.position.y) * (CGFloat(currentTime) - CGFloat(lastTime)) * 10
+        if let accelerometerData = self.motionManager.accelerometerData {
+            guard let offset = self.accelerometerOffset else {
+                self.accelerometerOffset = self.motionManager.accelerometerData
+                return
+            }
+            let changeY = CGFloat(accelerometerData.acceleration.x - offset.acceleration.x) * 30
+            self.pilotNode.position.y -= changeY
+            if self.pilotNode.position.y > 200 {
+                self.pilotNode.position.y = 200
+            }
+            if self.pilotNode.position.y < -200 {
+                self.pilotNode.position.y = -200
+            }
+        }
         
-        lastTime = currentTime
+        //self.pilotNode.position.y += (self.desiredPosition.y - self.pilotNode.position.y) * (CGFloat(currentTime) - CGFloat(lastTime)) * 10
+        
+        //lastTime = currentTime
     }
 }

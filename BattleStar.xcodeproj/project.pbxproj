@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF1CA054260D073C009FE8F1 /* Smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF1CA052260D073C009FE8F1 /* Smoke.sks */; };
+		EF1CA055260D073C009FE8F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1CA053260D073C009FE8F1 /* Assets.xcassets */; };
+		EF1CA058260D0DFD009FE8F1 /* Clouds.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF1CA057260D0DFD009FE8F1 /* Clouds.sks */; };
 		EF40784E260A62E3000EB5BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF40784D260A62E3000EB5BF /* AppDelegate.swift */; };
 		EF407850260A62E3000EB5BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF40784F260A62E3000EB5BF /* GameScene.sks */; };
 		EF407852260A62E3000EB5BF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF407851260A62E3000EB5BF /* Actions.sks */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF1CA052260D073C009FE8F1 /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Smoke.sks; sourceTree = "<group>"; };
+		EF1CA053260D073C009FE8F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF1CA057260D0DFD009FE8F1 /* Clouds.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Clouds.sks; sourceTree = "<group>"; };
 		EF40784A260A62E3000EB5BF /* BattleStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF40784D260A62E3000EB5BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF40784F260A62E3000EB5BF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -42,6 +48,9 @@
 		EF407841260A62E3000EB5BF = {
 			isa = PBXGroup;
 			children = (
+				EF1CA057260D0DFD009FE8F1 /* Clouds.sks */,
+				EF1CA052260D073C009FE8F1 /* Smoke.sks */,
+				EF1CA053260D073C009FE8F1 /* Assets.xcassets */,
 				EF40784C260A62E3000EB5BF /* BattleStar */,
 				EF40784B260A62E3000EB5BF /* Products */,
 			);
@@ -129,7 +138,10 @@
 			files = (
 				EF407859260A62E3000EB5BF /* Main.storyboard in Resources */,
 				EF407850260A62E3000EB5BF /* GameScene.sks in Resources */,
+				EF1CA058260D0DFD009FE8F1 /* Clouds.sks in Resources */,
 				EF40785B260A62E3000EB5BF /* Assets.xcassets in Resources */,
+				EF1CA054260D073C009FE8F1 /* Smoke.sks in Resources */,
+				EF1CA055260D073C009FE8F1 /* Assets.xcassets in Resources */,
 				EF407852260A62E3000EB5BF /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
